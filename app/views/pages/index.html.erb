@@ -1,3 +1,23 @@
-<h1>COVID-19 Test Booking</h1>
+<div class="justify-content-center text-center">
+    <div class="jumbotron bg-overlay">
+      <h1 class="mb-4">COVID 19 Test Booking</h1>
+      <p class="lead font-weight-normal">Book tests to see your COVID-19 status<br> or to release for travel.</p><br>
+    </div>
+    
+    <div class="row justify-content-center text-center">
+      	<div class='justify-content-center text-center neg-top-margin-home'>
+            <p class="lead blue-icon"><%= fa_icon 'check-circle' %> Accredited Clinic and Laboratory</p>
+            <p class="lead blue-icon"><%= fa_icon 'check-circle' %> Certificate Signed by Registered Doctor</p>
+            <p class="lead blue-icon"><%= fa_icon 'check-circle' %> Government listed Test Center for Test to Release</p>
+            <p class="lead blue-icon"><%= fa_icon 'check-circle' %> Swabs Taken by Trained Clinicians</p>
+            <p class="lead blue-icon mb-5"><%= fa_icon 'check-circle' %> All Documentation Provided in the Price</p>
+               
+            <%= link_to 'Book Appointment','#', class:"btn blue-button btn-lg" %>
+        </div>
+    </div>
+    
+</div>
 
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+
+<br><br><br><br>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete
