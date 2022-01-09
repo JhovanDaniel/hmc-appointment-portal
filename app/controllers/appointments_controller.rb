@@ -21,7 +21,7 @@ class AppointmentsController < ApplicationController
   end 
   
   def index
-    @article = Article.first
+    @article = Appointment.all
   end
     
     
