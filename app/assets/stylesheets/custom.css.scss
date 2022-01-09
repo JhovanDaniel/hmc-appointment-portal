@@ -11,7 +11,7 @@ a {
     background-position: center center;
     color: black;
     height: 520px;
-    padding-top: 4rem;
+    padding-top: 3rem;
 }
 
 .blue-button, .blue-button:hover, .blue-button:focus{
@@ -21,11 +21,16 @@ a {
 
 .blue-icon {
   color: #0C1561 !important;
+  font-weight: normal;
 }
 
 .brand-text{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    float: left;
+    line-height: 20px;
+    height: 50px;
+    font-size: 1.5rem;
     color: black;
-    font-size: 1.7em;
 }
 
 .navbar-left-margin{
@@ -35,6 +40,6 @@ a {
 .neg-top-margin-home{
     background: white;
     padding: 2rem !important;
-    margin-top: -20rem;
+    margin-top: -21rem;
     
 }

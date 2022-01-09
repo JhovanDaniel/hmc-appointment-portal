@@ -12,7 +12,7 @@
             <p class="lead blue-icon"><%= fa_icon 'check-circle' %> Swabs Taken by Trained Clinicians</p>
             <p class="lead blue-icon mb-5"><%= fa_icon 'check-circle' %> All Documentation Provided in the Price</p>
                
-            <%= link_to 'Book Appointment','#', class:"btn blue-button btn-lg" %>
+            <%= link_to 'Book Appointment', new_appointment_path, class:"btn blue-button btn-lg" %>
         </div>
     </div>
     
@@ -20,4 +20,4 @@
 
 
 <br><br><br><br>
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>

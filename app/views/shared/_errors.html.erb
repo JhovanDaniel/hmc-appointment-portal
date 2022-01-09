@@ -1,0 +1,10 @@
+<% if @appointment.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">The following errors prevented the appointment from being made: </h4>
+        <ul>
+            <% @appointment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %><br>
