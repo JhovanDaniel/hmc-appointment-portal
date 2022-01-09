@@ -33,6 +33,11 @@ a {
     color: black;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 .navbar-left-margin{
     margin-left: 14rem;
 }
@@ -43,3 +48,11 @@ a {
     margin-top: -21rem;
     
 }
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+} 
