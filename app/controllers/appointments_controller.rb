@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create, :confirmation]
   
   def new
-      @appointment = Appointment.new
+      @appointment = Appointment.new#
   end
   
   def create
@@ -21,7 +21,7 @@ class AppointmentsController < ApplicationController
   end 
   
   def index
-    @article = Appointment.all
+    @appointments = Appointment.all
   end
     
     

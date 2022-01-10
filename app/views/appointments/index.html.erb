@@ -1,1 +1,104 @@
-<h1> App Index</h1>
+    <h1 class="mt-4"> All Appointments </h1><br/>
+    
+    <div class="col-5">
+      <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <p class="lead blue-icon"><%= fa_icon 'calendar 2x' %></p>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Appointment.count %>
+            </div>
+            <div class="text-muted">
+              Total Appointments
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center text-center">
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Appointment.count %>
+            </div>
+            <div class="text-muted">
+              Today
+            </div>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Appointment.count %>
+            </div>
+            <div class="text-muted">
+              After Today
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center text-center">
+            <div class="col">
+                <p class="lead">Today</p>
+            </div>
+        </div>
+        <div class="row align-items-center text-center">
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Appointment.where(location_id: 3).count %>
+            </div>
+            <div class="text-muted">
+            In Clinic
+            </div>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Appointment.where.not(location_id: 3).count %>
+            </div>
+            <div class="text-muted">
+              Out of Clinic
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </br></br>
+    
+    <!-- Table start -->
+    
+     <table class="table table-striped mt-4 mb-4">
+        <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Appointment Time</th>
+              <th>Location</th>
+              <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+          <tbody>
+              <% @appointments.each do |app| %>
+              <tr>
+                  <td> <%= app.first_name %> </td>
+                  <td> <%= app.last_name %></td>
+                  <td><%= app.phone %></td>
+                  <td><%= app.email %></td>
+                  <td><%= app.appointment_time.strftime("%d-%m-%Y at %H:%M") %></td>
+                  <td><%= app.location.name %></td>
+                  <td><%= link_to "View", '#', class:"btn btn-outline-primary btn-sm" %></td>
+                  <td><%= link_to 'Edit', '#', class:"btn btn-outline-primary btn-sm" %></td>
+                  <td><%= link_to 'Create Test', '#', class:"btn btn-outline-primary btn-sm" %></td>
+              </tr>
+              <% end %>
+          </tbody>
+      </table><br>
+      
+      <p class="lead"><%= link_to 'Back to Home', '#', class:"btn btn-primary btn-sm mb-4" %></p>
