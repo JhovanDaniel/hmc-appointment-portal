@@ -1,6 +1,8 @@
 class AppointmentsController < ApplicationController
   
   skip_before_action :authenticate_user!, only: [:new, :create, :confirmation]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  
   
   def new
       @appointment = Appointment.new#
@@ -23,12 +25,20 @@ class AppointmentsController < ApplicationController
   def index
     @appointments = Appointment.all
   end
+  
+  def show
+    
+  end
     
     
     private
     
     def appointment_params
        params.require(:appointment).permit(:first_name, :last_name, :date_of_birth, :gender, :phone, :email, :appointment_time, :location_id) 
+    end
+    
+    def set_appointment
+      @appointment = Appointment.find(params[:id])
     end
 
 end

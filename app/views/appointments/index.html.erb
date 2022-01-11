@@ -93,7 +93,7 @@
                   <td><%= app.email %></td>
                   <td><%= app.appointment_time.strftime("%d-%m-%Y at %H:%M") %></td>
                   <td><%= app.location.name %></td>
-                  <td><%= link_to "View", '#', class:"btn btn-outline-primary btn-sm" %></td>
+                  <td><%= link_to "View", appointment_path(app), class:"btn btn-outline-primary btn-sm" %></td>
                   <td><%= link_to 'Edit', '#', class:"btn btn-outline-primary btn-sm" %></td>
                   <td><%= link_to 'Create Test', '#', class:"btn btn-outline-primary btn-sm" %></td>
               </tr>

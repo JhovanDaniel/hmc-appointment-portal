@@ -1,0 +1,29 @@
+<P class='lead'> <%= @appointment.first_name %> <%= @appointment.last_name %>'s <%= @appointment.appointment_time.strftime("%d-%m-%Y") %> appointment at <%= @appointment.location.name %> </p>
+
+<div class="card mt-4" style="width: 50rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= @appointment.first_name %> <%= @appointment.last_name %></h5></br>
+        <h6 class="card-subtitle mb-2 text-muted">Appointment Number: HMCAP<%= @appointment.id %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Appointment Time: <%= @appointment.appointment_time.strftime("%d-%m-%Y at %H:%M") %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Location: <%= @appointment.location.name %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Date of Birth: <%= @appointment.date_of_birth %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Gender: <%= @appointment.gender %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Phone: <%= @appointment.phone %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Email: <%= @appointment.email %></h6></br>
+
+        <!-- if test is there put it here -->
+        
+        
+        <p class="card-text">Created on: <%= @appointment.created_at %></p>
+        <p class="card-text">Last updated on: <%= @appointment.updated_at %></p>
+        
+        <!-- User permissions -->
+                <%= link_to 'Edit', '#', class:"btn btn-outline-primary btn-sm" %>
+                <%= link_to 'Delete', '#', class:"btn btn-danger btn-sm" %>
+
+      </div>
+    </div></br>
+    
+<p>
+    <%= link_to "Return to appointments listing", appointments_path %>
+</p><br>
