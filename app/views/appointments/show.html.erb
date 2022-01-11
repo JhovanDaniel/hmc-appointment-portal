@@ -18,7 +18,7 @@
         <p class="card-text">Last updated on: <%= @appointment.updated_at %></p>
         
         <!-- User permissions -->
-                <%= link_to 'Edit', '#', class:"btn btn-outline-primary btn-sm" %>
+                <%= link_to 'Edit', edit_appointment_path(@appointment), class:"btn btn-outline-primary btn-sm" %>
                 <%= link_to 'Delete', '#', class:"btn btn-danger btn-sm" %>
 
       </div>

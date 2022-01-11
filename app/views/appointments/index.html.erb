@@ -23,7 +23,7 @@
         <div class="row align-items-center text-center">
           <div class="col">
             <div class="font-weight-medium">
-              <%= Appointment.count %>
+              <%= Appointment.is_today_count %>
             </div>
             <div class="text-muted">
               Today
@@ -31,7 +31,7 @@
           </div>
           <div class="col">
             <div class="font-weight-medium">
-              <%= Appointment.count %>
+              <%= Appointment.is_after_today_count %>
             </div>
             <div class="text-muted">
               After Today
@@ -50,7 +50,7 @@
         <div class="row align-items-center text-center">
           <div class="col">
             <div class="font-weight-medium">
-              <%= Appointment.where(location_id: 3).count %>
+              <%= Appointment.is_in_clinic_count %>
             </div>
             <div class="text-muted">
             In Clinic
@@ -58,7 +58,7 @@
           </div>
           <div class="col">
             <div class="font-weight-medium">
-              <%= Appointment.where.not(location_id: 3).count %>
+              <%= Appointment.is_not_in_clinic_count %>
             </div>
             <div class="text-muted">
               Out of Clinic
@@ -93,12 +93,12 @@
                   <td><%= app.email %></td>
                   <td><%= app.appointment_time.strftime("%d-%m-%Y at %H:%M") %></td>
                   <td><%= app.location.name %></td>
-                  <td><%= link_to "View", appointment_path(app), class:"btn btn-outline-primary btn-sm" %></td>
-                  <td><%= link_to 'Edit', '#', class:"btn btn-outline-primary btn-sm" %></td>
-                  <td><%= link_to 'Create Test', '#', class:"btn btn-outline-primary btn-sm" %></td>
+                  <td><%= link_to "View", appointment_path(app), class:"btn btn-primary btn-sm" %></td>
+                  <td><%= link_to 'Edit', edit_appointment_path(app), class:"btn btn-primary btn-sm" %></td>
+                  <td><%= link_to 'Create Test', '#', class:"btn btn-success btn-sm" %></td>
               </tr>
               <% end %>
           </tbody>
       </table><br>
       
-      <p class="lead"><%= link_to 'Back to Home', '#', class:"btn btn-primary btn-sm mb-4" %></p>
+      <p class="lead"><%= link_to 'Back to Home', root_path, class:"btn btn-primary btn-sm mb-4" %></p>

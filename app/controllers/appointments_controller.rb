@@ -29,6 +29,19 @@ class AppointmentsController < ApplicationController
   def show
     
   end
+  
+  def edit 
+    
+  end
+  
+  def update
+      if @appointment.update(appointment_params)
+          flash[:notice] = "Appointment was updated successfully"
+          redirect_to @appointment
+      else
+          render 'edit'
+      end
+  end
     
     
     private
