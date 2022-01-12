@@ -1,0 +1,32 @@
+<table class="table table-striped mt-4 mb-4">
+        <thead>
+          <tr>
+              <th>Appointment Number</th>
+              <th>Patient Name</th>
+              <th>Specimen Number</th>
+              <th>Control Number</th>
+              <th>Result Date</th>
+              <th>Result</th>
+              <th>Approval</th>
+              <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+          <tbody>
+              <% @appointment_tests.each do |app_test| %>
+              <tr>
+                  <td> HMCAP<%= app_test.appointment_id %> </td>
+                  <td> <%= app_test.appointment.first_name %> <%= app_test.appointment.last_name %> </td>
+                  <td> <%= app_test.speciment_number %></td>
+                  <td><%= app_test.control_number %></td>
+                  <td><%= app_test.result_date %></td>
+                  <td><%= app_test.result %></td>
+                  <td><%= app_test.approval_status %></td>
+                  <td><%= link_to "View", '#', class:"btn btn-primary btn-sm" %></td>
+                  <td><%= link_to 'Edit', '#', class:"btn btn-primary btn-sm" %></td>
+                  <td><%= link_to 'Approve Results', '#', class:"btn btn-danger btn-sm" %></td>
+              </tr>
+              <% end %>
+          </tbody>
+      </table><br>
+      
+      <p class="lead"><%= link_to 'Back to Home', root_path, class:"btn btn-primary btn-sm mb-4" %></p>

@@ -1,5 +1,7 @@
 class AppointmentTestsController < ApplicationController
     
+    before_action :set_appointment_test, only: [:show, :edit, :update, :destroy]
+    
     def new
         @appointment_test = AppointmentTest.new(appointment_test_params)
         if @appointment_test.save
@@ -12,6 +14,10 @@ class AppointmentTestsController < ApplicationController
     def create
       
     end 
+    
+    def index
+        @appointment_tests = AppointmentTest.all
+    end
     
     private
     
