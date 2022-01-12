@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :appointments
+  resources :appointment_tests
   get "appointments", :to => 'appointments#index'
   devise_for :users
   
