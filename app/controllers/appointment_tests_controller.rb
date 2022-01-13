@@ -4,6 +4,7 @@ class AppointmentTestsController < ApplicationController
     
     def new
         @appointment_test = AppointmentTest.new(appointment_test_params)
+        @appointment_test.laboratory_number = 'HMC19OP5'
         if @appointment_test.save
             flash[:notice] = "Test was successfully created for appointment HMCAP" + @appointment_test.appointment_id.to_s
         else
@@ -19,10 +20,31 @@ class AppointmentTestsController < ApplicationController
         @appointment_tests = AppointmentTest.all
     end
     
+    def edit 
+    
+    end
+    
+    def update
+        if @appointment_test.update(appointment_test_update_params)
+            flash[:notice] = "Test was updated successfully"
+            redirect_to @appointment_test
+        else
+            render 'edit'
+        end
+     end
+     
+     def show
+    
+    end
+    
     private
     
     def appointment_test_params
-       params.permit(:appointment_id, :laboratory_number) 
+       params.permit(:appointment_id, :laboratory_number, :speciment_number, :control_number, :result_date, :result) 
+    end
+    
+    def appointment_test_update_params
+       params.require(:appointment_test).permit(:appointment_id, :laboratory_number, :speciment_number, :control_number, :result_date, :result, :approval_status) 
     end
     
     def set_appointment_test

@@ -19,8 +19,9 @@
         
         <!-- User permissions -->
                 <%= link_to 'Edit', edit_appointment_path(@appointment), class:"btn btn-outline-primary btn-sm" %>
+                <%= link_to 'Create test', new_appointment_test_path(:appointment_id => @appointment.id), class:"btn btn-success btn-sm" %>
                 <%= link_to 'Delete', '#', class:"btn btn-danger btn-sm" %>
-
+                
       </div>
     </div></br>
     

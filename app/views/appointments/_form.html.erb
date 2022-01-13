@@ -1,3 +1,7 @@
+<div class="col-10">
+    <%= render 'shared/errors', obj: @appointment %>
+</div>
+
 <%= form_with(model: @appointment, local: true) do |f| %>
         
             <div class="form-group">

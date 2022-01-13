@@ -96,7 +96,7 @@
                 <td><%= link_to "View", appointment_path(app), class:"btn btn-primary btn-sm" %></td>
                 <td><%= link_to 'Edit', edit_appointment_path(app), class:"btn btn-primary btn-sm" %></td>
                 <!-- check if test exists, if it does make button view test if permission is right -->
-                <td><%= link_to 'Create test', new_appointment_test_path(:appointment_id => app.id, :laboratory_number => 'HMC10281'), class:"btn btn-success btn-sm" %></td>
+                <td><%= link_to 'Create test', new_appointment_test_path(:appointment_id => app.id), class:"btn btn-success btn-sm" %></td>
               </tr>
               <% end %>
           </tbody>
