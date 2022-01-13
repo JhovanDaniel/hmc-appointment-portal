@@ -16,10 +16,17 @@
                   <td> <%= app_test.appointment.first_name %> <%= app_test.appointment.last_name %> </td>
                   <td> <%= app_test.speciment_number %></td>
                   <td><%= app_test.result_date %></td>
-                  <td><%= app_test.result %></td>
+                  
+                  <% if app_test.result == 'Negative' %>
+                  <td><button class="badge badge-success"><%= app_test.result %></button></br>
+                  <% else %>
+                  <td><button class="badge badge-warning"><%= app_test.result %></button></br>
+                  <% end %>
+                  
+                  
                   <td><%= link_to "View", appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
                   <td><%= link_to 'Edit', edit_appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
-                  <td><%= link_to 'Approve Results', '#', class:"btn btn-danger btn-sm" %></td>
+                  <td><%= link_to 'Approve Results', '#', class:"btn btn-success btn-sm" %></td>
               </tr>
               <% end %>
           </tbody>

@@ -1,7 +1,7 @@
 class Appointment < ApplicationRecord
     
     belongs_to :location
-    has_one :appointment_test
+    has_one :appointment_test, :dependent => :destroy
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, length: { maximum: 105}, 

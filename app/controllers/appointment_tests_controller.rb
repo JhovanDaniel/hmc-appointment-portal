@@ -31,10 +31,16 @@ class AppointmentTestsController < ApplicationController
         else
             render 'edit'
         end
-     end
+    end
      
-     def show
+    def show
     
+    end
+    
+    def destroy 
+        @appointment_test.destroy
+        flash[:notice] = "Test was deleted successfully"
+        redirect_to appointment_tests_path
     end
     
     private

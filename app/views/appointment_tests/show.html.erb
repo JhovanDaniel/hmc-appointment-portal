@@ -7,11 +7,18 @@
         <h6 class="card-subtitle mb-2 text-muted">Specimen Number: <%= @appointment_test.speciment_number %></h6></br>
         <h6 class="card-subtitle mb-2 text-muted">Control Number: <%= @appointment_test.control_number %></h6></br>
         <% if @appointment_test.result_date.present? %>
-            <h6 class="card-subtitle mb-2 text-muted">Result Date: <%= @appointment_test.result_date.strftime("%d-%m-%Y") %></h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Result Date: <%= @appointment_test.result_date.strftime("%d-%m-%Y") %></h6>
         <% else %>
-            <h6 class="card-subtitle mb-2 text-muted">Result Date: No result date</h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Result Date: No result date</h6>
         <% end %>
-        <h6 class="card-subtitle mb-2 text-muted">Result: <%= @appointment_test.result %></h6></br>
+        
+        <% if @appointment_test.result == 'Negative' %>
+            <span class="badge badge-success mb-4">Result: <%= @appointment_test.result %></span></br>
+        <% else %>
+            <span class="badge badge-warning mb-4">Result: <%= @appointment_test.result %></span></br>
+        <% end %>
+        
+        
         <h6 class="card-subtitle mb-2 text-muted">Approval Status: <%= @appointment_test.approval_status %></h6></br>
 
         <!-- if test is there put it here -->
@@ -22,7 +29,7 @@
         
         <!-- User permissions -->
                 <%= link_to 'Edit', edit_appointment_test_path(@appointment_test), class:"btn btn-outline-primary btn-sm" %>
-                <%= link_to 'Delete', '#', class:"btn btn-danger btn-sm" %>
+                <%= link_to 'Delete', appointment_test_path(@appointment_test), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
 
       </div>
     </div></br>

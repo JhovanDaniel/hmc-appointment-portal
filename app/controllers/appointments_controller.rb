@@ -42,6 +42,12 @@ class AppointmentsController < ApplicationController
           render 'edit'
       end
   end
+  
+  def destroy 
+    @appointment.destroy
+    flash[:notice] = "Appointment was deleted successfully"
+    redirect_to appointments_path
+  end
     
     
     private
