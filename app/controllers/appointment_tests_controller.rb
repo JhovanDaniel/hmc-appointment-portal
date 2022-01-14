@@ -1,6 +1,6 @@
 class AppointmentTestsController < ApplicationController
     
-    before_action :set_appointment_test, only: [:show, :edit, :update, :destroy]
+    before_action :set_appointment_test, only: [:show, :edit, :update, :destroy, :show_certificate]
     
     def new
         @appointment_test = AppointmentTest.new(appointment_test_params)
@@ -18,6 +18,7 @@ class AppointmentTestsController < ApplicationController
     
     def index
         @appointment_tests = AppointmentTest.all
+        
     end
     
     def edit 
@@ -41,6 +42,15 @@ class AppointmentTestsController < ApplicationController
         @appointment_test.destroy
         flash[:notice] = "Test was deleted successfully"
         redirect_to appointment_tests_path
+    end
+    
+    def show_certificate
+        respond_to do |format|
+        format.html
+        format.pdf do
+            render pdf: "file_name", template: "appointment_tests/show_certificate.html.erb", page_size: 'Letter', layout: 'pdf.html'
+        end
+    end
     end
     
     private

@@ -1,37 +1,40 @@
 <h1 class="mt-4"> All Appointment Tests </h1><br/>
-    
-<table class="table table-striped mt-4 mb-4">
-        <thead>
-          <tr>
-              <th>Appointment Number</th>
-              <th>Patient Name</th>
-              <th>Specimen Number</th>
-              <th>Result Date</th>
-              <th>Result</th>
-              <th colspan="3">Actions</th>
-          </tr>
-        </thead>
-          <tbody>
-              <% @appointment_tests.each do |app_test| %>
-              <tr>
-                  <td> HMCAP<%= app_test.appointment_id %> </td>
-                  <td> <%= app_test.appointment.first_name %> <%= app_test.appointment.last_name %> </td>
-                  <td> <%= app_test.speciment_number %></td>
-                  <td><%= app_test.result_date %></td>
-                  
-                  <% if app_test.result == 'Negative' %>
-                  <td><button class="badge badge-success"><%= app_test.result %></button></br>
-                  <% else %>
-                  <td><button class="badge badge-warning"><%= app_test.result %></button></br>
-                  <% end %>
-                  
-                  
-                  <td><%= link_to "View", appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
-                  <td><%= link_to 'Edit', edit_appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
-                  <td><%= link_to 'Approve Results', '#', class:"btn btn-success btn-sm" %></td>
-              </tr>
-              <% end %>
-          </tbody>
-      </table><br>
+<div class="table-responsive">    
+  <table class="table table-striped mt-4 mb-4">
+      <thead>
+        <tr>
+            <th>Appointment Number</th>
+            <th>Patient Name</th>
+            <th>Specimen Number</th>
+            <th>Result Date</th>
+            <th>Result</th>
+            <th>Certificate</th>
+            <th colspan="3">Actions</th>
+        </tr>
+      </thead>
+        <tbody>
+            <% @appointment_tests.each do |app_test| %>
+            <tr>
+                <td> HMCAP<%= app_test.appointment_id %> </td>
+                <td> <%= app_test.appointment.first_name %> <%= app_test.appointment.last_name %> </td>
+                <td> <%= app_test.speciment_number %></td>
+                <td><%= app_test.result_date %></td>
+                
+                <% if app_test.result == 'Negative' %>
+                <td><button class="badge badge-success"><%= app_test.result %></button></br>
+                <% else %>
+                <td><button class="badge badge-warning"><%= app_test.result %></button></br>
+                <% end %>
+                
+                <td><%= link_to "Certificate", show_certificate_path(app_test, format: :pdf), class:"btn btn-outline-primary btn-sm" %></td>
+                
+                <td><%= link_to "View", appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
+                <td><%= link_to 'Edit', edit_appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
+                <td><%= link_to 'Approve Results', '#', class:"btn btn-success btn-sm" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+  </div><br>
       
       <p class="lead"><%= link_to 'Back to Home', root_path, class:"btn btn-primary btn-sm mb-4" %></p>

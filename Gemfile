@@ -7,6 +7,8 @@ ruby '2.6.3'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 gem 'devise'
 gem "font-awesome-rails"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
