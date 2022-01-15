@@ -12,7 +12,7 @@
             <h6 class="card-subtitle mb-2 text-muted">Result Date: No result date</h6>
         <% end %>
         
-        <% if @appointment_test.result == 'Negative' %>
+        <% if @appointment_test.result == 'SARS-CoV-2 NEGATIVE' %>
             <span class="badge badge-success mb-4">Result: <%= @appointment_test.result %></span></br>
         <% else %>
             <span class="badge badge-warning mb-4">Result: <%= @appointment_test.result %></span></br>
@@ -28,6 +28,7 @@
         <p class="card-text">Record Last updated on: <%= @appointment_test.updated_at %></p>
         
         <!-- User permissions -->
+                <%= link_to "Certificate", show_certificate_path(@appointment_test, format: :pdf), class:"btn btn-outline-primary btn-sm" %>
                 <%= link_to 'Edit', edit_appointment_test_path(@appointment_test), class:"btn btn-outline-primary btn-sm" %>
                 <%= link_to 'Delete', appointment_test_path(@appointment_test), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
 

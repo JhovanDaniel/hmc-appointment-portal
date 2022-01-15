@@ -20,7 +20,7 @@
                 <td> <%= app_test.speciment_number %></td>
                 <td><%= app_test.result_date %></td>
                 
-                <% if app_test.result == 'Negative' %>
+                <% if app_test.result == 'SARS-CoV-2 NEGATIVE' %>
                 <td><button class="badge badge-success"><%= app_test.result %></button></br>
                 <% else %>
                 <td><button class="badge badge-warning"><%= app_test.result %></button></br>
