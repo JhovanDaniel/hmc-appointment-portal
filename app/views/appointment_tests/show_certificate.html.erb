@@ -1,12 +1,12 @@
-<div class="text-center">
-    <h1> MEDILAB </h1>
-    <p>Hughes Estate, P.O. Box 1410, Anguilla</p>
-    <p>Tel: (264) 497-6349 |  Fax: (264) 497-7870</p>
+<div class="text-center mb-4">
+    <h2 class='no-pad'> MEDILAB </h1>
+    <p class='no-pad'>Hughes Estate, P.O. Box 1410, Anguilla</p>
+    <p class='no-pad'>Tel: (264) 497-6349 |  Fax: (264) 497-7870</p>
 </div>
 
-<div class="border p-4 mb-4">
+<div class="border p-2 mb-4">
     <strong><p class='text-center'>PATIENT DETAILS</p></strong>
-    <p><strong class='mr-4'>PATIENT FULL NAME:</strong><%= @appointment_test.appointment.first_name %></p>
+    <p><strong class='mr-4'>PATIENT FULL NAME:</strong><%= @appointment_test.appointment.first_name %> <%= @appointment_test.appointment.last_name %></p>
     <p><strong class='mr-4'>LAB ID:</strong><%= @appointment_test.laboratory_number %></p>
     <p><strong class='mr-4'>DATE OF BIRTH:</strong><%= @appointment_test.appointment.date_of_birth %></p>
     <p><strong class='mr-4'>AGE:</strong><%= ((Time.zone.now - @appointment_test.appointment.date_of_birth.to_time)/ 1.year.seconds).floor %> </p>
@@ -17,21 +17,29 @@
     <p><strong class='mr-4'>COLLECTION DATE:</strong> <%= @appointment_test.result_date.strftime("%d-%m-%Y") %> </p>
 </div>
 
-<div class="border p-4 mb-4">
+<div class="border p-2 mb-4">
     <strong><p class='text-center'>ASSAY INFORMATION</p></strong>
     <p><strong class='mr-4'>METHOD:</strong>PCR anaysis with probe panel</p>
     <p><strong class='mr-4'>ASSAY:</strong>Xpert Xpress SARS-COV-2</p>
     <p><strong class='mr-4'>ASSAY TYPE:</strong>In Vitro Diagnostics</p>
 </div>
 
-<div class="border p-4 mb-4">
+<div class="border p-2 mb-4">
+    <strong><p class='text-center'>TEST RESULTS</p></strong>
     <p><strong class='mr-4'>TEST RESULT:</strong><%= @appointment_test.result %></p>
 </div>
 
 <div class="row d-table-row neg-row small-text">
            <div class="col w-25 d-table-cell py-0">
-               <p>Performed by: Micheal Mike </p> 
-               <p>Verified by: Mikey Mike </p>
+               <p class='no-pad'>Performed by: </p>
+               <%= wicked_pdf_image_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Signature_of_Ann_Miller.svg/800px-Signature_of_Ann_Miller.svg.png', width:100 %>
+               <p class='no-pad'><u>Michelle Mike</u></p>
+               <p class='no-pad'>Medical Laboratory Technologist</p></br>
+               
+               <p class='no-pad'>Verified by: </p>
+                <%= image_tag("https://static.cdn.wisestamp.com/wp-content/uploads/2020/08/Oprah-Winfrey-Signature-1.png", width: 100) %>
+                <p class='no-pad'><u>Mikey Mike</u></p>
+               <p class='no-pad'>Medical Director</p>
            </div>
            <div class="col w-25 d-table-cell py-0">
                <p> Specimen No: <%= @appointment_test.speciment_number %> </p>
