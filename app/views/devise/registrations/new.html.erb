@@ -22,6 +22,11 @@
     <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
   </div>
   
+  <div class="form-group">
+      <%= f.label 'Location' %>
+      <%= f.collection_select :location_id, Location.order(:name), :id, :name, style: 'display: block;'%>
+  </div>
+  
   <div class="form-group col-6">
     <%= f.label :access_level %>
     <%= f.select :access_level, ['Admin', 'Doctor', 'Lab', 'Nurse', 'Hotel', 'Viewer'], style: 'display: block;'%>
