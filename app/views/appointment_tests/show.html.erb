@@ -18,8 +18,11 @@
             <span class="badge badge-danger mb-4">Result: <%= @appointment_test.result %></span></br>
         <% end %>
         
-        
-        <h6 class="card-subtitle mb-2 text-muted">Approval Status: <%= @appointment_test.approval_status %></h6></br>
+        <% if @appointment_test.approval_status == true %>
+            <h6 class="card-subtitle mb-2 text-muted">Approval Status: Approved</h6></br>
+        <% else %>
+             <h6 class="card-subtitle mb-2 text-muted">Approval Status: Not Approved</h6></br>
+        <% end %>
 
         <!-- if test is there put it here -->
         
@@ -30,6 +33,13 @@
         <!-- User permissions -->
                 <%= link_to "Certificate", show_certificate_path(@appointment_test, format: :pdf), class:"btn btn-outline-primary btn-sm" %>
                 <%= link_to 'Edit', edit_appointment_test_path(@appointment_test), class:"btn btn-outline-primary btn-sm" %>
+                
+                <% if @appointment_test.approval_status == true %>
+                  <td><%= link_to 'Unapprove Results', approve_result_path(@appointment_test),  class:"btn btn-danger btn-sm", data: { confirm: "Are you sure?" } %></td>
+                <% else %>
+                  <td><%= link_to 'Approve Results', approve_result_path(@appointment_test),  class:"btn btn-success btn-sm", data: { confirm: "Are you sure?" } %></td>
+                <% end %>
+                
                 <%= link_to 'Delete', appointment_test_path(@appointment_test), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
 
       </div>

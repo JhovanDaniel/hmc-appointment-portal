@@ -1,6 +1,6 @@
 class AppointmentTestsController < ApplicationController
     
-    before_action :set_appointment_test, only: [:show, :edit, :update, :destroy, :show_certificate]
+    before_action :set_appointment_test, only: [:show, :edit, :update, :destroy, :show_certificate, :approve_result]
     
     def new
         @appointment_test = AppointmentTest.new(appointment_test_params)
@@ -46,12 +46,29 @@ class AppointmentTestsController < ApplicationController
     
     def show_certificate
         respond_to do |format|
-        format.html
-        format.pdf do
-            render pdf: "file_name", template: "appointment_tests/show_certificate.html.erb", page_size: 'Letter', layout: 'pdf.html'
+            format.html
+            format.pdf do
+                render pdf: "file_name", template: "appointment_tests/show_certificate.html.erb", page_size: 'Letter', layout: 'pdf.html'
+            end
         end
     end
+    
+    def approve_result
+        if @appointment_test.approval_status == true
+            @appointment_test.approval_status = false
+        else
+            @appointment_test.approval_status = true
+        end
+        
+        if @appointment_test.save
+            flash[:notice] = "Test was approved successfully"
+            redirect_to appointment_tests_path
+        else
+            flash[:notice] = "Test was not saved due to an error"
+            redirect_to appointment_tests_path
+        end
     end
+    
     
     private
     
