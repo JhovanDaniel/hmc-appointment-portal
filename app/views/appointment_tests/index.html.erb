@@ -23,14 +23,14 @@
                 <% if app_test.result == 'SARS-CoV-2 NEGATIVE' %>
                 <td><button class="badge badge-success"><%= app_test.result %></button></br>
                 <% else %>
-                <td><button class="badge badge-warning"><%= app_test.result %></button></br>
+                <td><button class="badge badge-danger"><%= app_test.result %></button></br>
                 <% end %>
                 
                 <td><%= link_to "Certificate", show_certificate_path(app_test, format: :pdf), class:"btn btn-outline-primary btn-sm" %></td>
                 
                 <td><%= link_to "View", appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
                 <td><%= link_to 'Edit', edit_appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
-                <td><%= link_to 'Approve Results', '#', class:"btn btn-success btn-sm" %></td>
+                <td><%= link_to 'Approve Results', '#', class:"btn btn-success btn-sm", data: { confirm: "Are you sure?" } %></td>
             </tr>
             <% end %>
         </tbody>

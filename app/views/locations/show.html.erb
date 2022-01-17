@@ -1,0 +1,25 @@
+<P class='lead'> <%= @location.name %> </p>
+
+<div class="card mt-4" style="width: 50rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= @location.name %></h5></br>
+        <h6 class="card-subtitle mb-2 text-muted">Address:<%= @location.location %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Email: <%= @location.email %></h6></br>
+       
+
+        <!-- if test is there put it here -->
+        
+        
+        <p class="card-text">Created on: <%= @location.created_at %></p>
+        <p class="card-text">Last updated on: <%= @location.updated_at %></p>
+        
+        <!-- User permissions -->
+                <%= link_to 'Edit', edit_location_path(@location), class:"btn btn-outline-primary btn-sm" %>
+                <%= link_to 'Delete', location_path(@location), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+                
+      </div>
+    </div></br>
+    
+<p>
+    <%= link_to "Return to locations listing", locations_path %>
+</p><br>
