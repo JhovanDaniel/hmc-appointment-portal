@@ -3,19 +3,27 @@
 <div class="card mt-4" style="width: 50rem;">
     <div class="card-body">
         <h6 class="card-title">Appointment Number: HMCAP<%= @appointment_test.appointment.id %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted"> Patient Name: <%= @appointment_test.appointment.first_name %> <%= @appointment_test.appointment.last_name %> </h6></br>
         <h6 class="card-subtitle mb-2 text-muted">Laboratory Number: <%= @appointment_test.laboratory_number %></h6><br>
         <h6 class="card-subtitle mb-2 text-muted">Specimen Number: <%= @appointment_test.speciment_number %></h6></br>
         <h6 class="card-subtitle mb-2 text-muted">Control Number: <%= @appointment_test.appointment.first_name[0] + @appointment_test.appointment.first_name[1] + @appointment_test.appointment.last_name[0] + @appointment_test.appointment.last_name[1] + @appointment_test.appointment.gender[0] + ((Time.zone.now - @appointment_test.appointment.date_of_birth.to_time)/ 1.year.seconds).floor.to_s %></h6></br>
+        
         <% if @appointment_test.result_date.present? %>
             <h6 class="card-subtitle mb-2 text-muted">Result Date: <%= @appointment_test.result_date.strftime("%d-%m-%Y") %></h6>
         <% else %>
             <h6 class="card-subtitle mb-2 text-muted">Result Date: No result date</h6>
+        <% end %><br>
+        
+        <% if @appointment_test.reception_date.present? %>
+            <h6 class="card-subtitle mb-2 text-muted">Reception Date: <%= @appointment_test.reception_date.strftime("%d-%m-%Y") %></h6>
+        <% else %>
+            <h6 class="card-subtitle mb-2 text-muted">Reception Date: No reception date</h6>
         <% end %>
         
         <% if @appointment_test.result == 'SARS-CoV-2 NEGATIVE' %>
-            <span class="badge badge-success mb-4">Result: <%= @appointment_test.result %></span></br>
+            <span class="badge badge-success my-4">Result: <%= @appointment_test.result %></span></br>
         <% else %>
-            <span class="badge badge-danger mb-4">Result: <%= @appointment_test.result %></span></br>
+            <span class="badge badge-danger my-4">Result: <%= @appointment_test.result %></span></br>
         <% end %>
         
         <% if @appointment_test.approval_status == true %>
@@ -24,8 +32,6 @@
              <h6 class="card-subtitle mb-2 text-muted">Approval Status: Not Approved</h6></br>
         <% end %>
 
-        <!-- if test is there put it here -->
-        
         
         <p class="card-text">Record Created on: <%= @appointment_test.created_at %></p>
         <p class="card-text">Record Last updated on: <%= @appointment_test.updated_at %></p>

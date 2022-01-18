@@ -11,7 +11,12 @@
             <%= f.text_field :speciment_number, class:"form-control shadow rounded", placeholder: "Specimen Number"  %>
         </div>
     </div>
-
+    <div class="form-group">
+        <%= f.label :reception_date %>
+        <div class="col-6">
+            <%= f.date_field :reception_date, class:"form-control shadow rounded", placeholder: Date.today  %> 
+        </div>
+    </div>
     <div class="form-group">
         <%= f.label :result_date %>
         <div class="col-6">

@@ -72,11 +72,11 @@ class AppointmentTestsController < ApplicationController
     private
     
     def appointment_test_params
-       params.permit(:appointment_id, :laboratory_number, :speciment_number, :control_number, :result_date, :result) 
+       params.permit(:appointment_id, :laboratory_number, :speciment_number, :control_number, :result_date, :result, :reception_date) 
     end
     
     def appointment_test_update_params
-       params.require(:appointment_test).permit(:appointment_id, :laboratory_number, :speciment_number, :control_number, :result_date, :result, :approval_status) 
+       params.require(:appointment_test).permit(:appointment_id, :laboratory_number, :speciment_number, :control_number, :result_date, :result, :approval_status, :reception_date) 
     end
     
     def set_appointment_test
