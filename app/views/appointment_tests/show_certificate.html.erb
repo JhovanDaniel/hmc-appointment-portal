@@ -8,7 +8,7 @@
     <div class="border p-2 mb-4">
         <strong><p class='text-center'>PATIENT DETAILS</p></strong>
         <p><strong class='mr-4'>PATIENT FULL NAME:</strong><%= @appointment_test.appointment.first_name %> <%= @appointment_test.appointment.last_name %></p>
-        <p><strong class='mr-4'>LAB ID:</strong><%= @appointment_test.laboratory_number %></p>
+        <p><strong class='mr-4'>LAB ID:</strong>C19-<%= @appointment_test.speciment_number %></p>
         <p><strong class='mr-4'>DATE OF BIRTH:</strong><%= @appointment_test.appointment.date_of_birth %></p>
         <p><strong class='mr-4'>AGE:</strong><%= ((Time.zone.now - @appointment_test.appointment.date_of_birth.to_time)/ 1.year.seconds).floor %> </p>
         <p><strong class='mr-4'>DOCTOR:</strong> Mikey Mike</p>
@@ -44,8 +44,8 @@
            </div>
            <div class="col w-25 d-table-cell py-0">
                <p> Specimen No: <%= @appointment_test.speciment_number %> </p>
-               <p> Laboratory No: <%= @appointment_test.laboratory_number %> </p>
-               <p> Control No: <%= @appointment_test.control_number %> </p>
+               <p> Laboratory No: C19-<%= @appointment_test.speciment_number %> </p>
+               <p> Control No: <%= @appointment_test.appointment.first_name[0] + @appointment_test.appointment.first_name[1] + @appointment_test.appointment.last_name[0] + @appointment_test.appointment.last_name[1] + @appointment_test.appointment.gender[0] + ((Time.zone.now - @appointment_test.appointment.date_of_birth.to_time)/ 1.year.seconds).floor.to_s %></p>
                </div>
     </div>
 <% else %>

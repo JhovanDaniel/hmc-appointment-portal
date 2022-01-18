@@ -1,0 +1,19 @@
+<h1> <%= @user.first_name %> <%= @user.last_name %>'s Details</h1>
+
+<div class="card mt-4" style="width: 50rem;">
+    <div class="card-body">
+        <h6 class="card-title">First Name: <%= @user.first_name %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Last Name: <%= @user.last_name %></h6><br>
+        <h6 class="card-subtitle mb-2 text-muted">Email: <%= @user.email %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Location: <%= @user.location.name %></h6></br>
+        
+        <p class="card-text">Record Created on: <%= @user.created_at %></p>
+        <p class="card-text">Record Last updated on: <%= @user.updated_at %></p>
+        
+                <%= link_to 'Edit', '#', class:"btn btn-outline-primary btn-sm" %>
+      </div>
+    </div></br>
+    
+<p>
+    <%= link_to "Return to users listing", users_path %>
+</p><br>

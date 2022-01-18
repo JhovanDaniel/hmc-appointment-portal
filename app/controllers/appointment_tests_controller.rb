@@ -4,7 +4,6 @@ class AppointmentTestsController < ApplicationController
     
     def new
         @appointment_test = AppointmentTest.new(appointment_test_params)
-        @appointment_test.laboratory_number = 'HMC19OP5'
         if @appointment_test.save
             flash[:notice] = "Test was successfully created for appointment HMCAP" + @appointment_test.appointment_id.to_s
         else

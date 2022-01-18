@@ -5,7 +5,7 @@
         <h6 class="card-title">Appointment Number: HMCAP<%= @appointment_test.appointment.id %></h6></br>
         <h6 class="card-subtitle mb-2 text-muted">Laboratory Number: <%= @appointment_test.laboratory_number %></h6><br>
         <h6 class="card-subtitle mb-2 text-muted">Specimen Number: <%= @appointment_test.speciment_number %></h6></br>
-        <h6 class="card-subtitle mb-2 text-muted">Control Number: <%= @appointment_test.control_number %></h6></br>
+        <h6 class="card-subtitle mb-2 text-muted">Control Number: <%= @appointment_test.appointment.first_name[0] + @appointment_test.appointment.first_name[1] + @appointment_test.appointment.last_name[0] + @appointment_test.appointment.last_name[1] + @appointment_test.appointment.gender[0] + ((Time.zone.now - @appointment_test.appointment.date_of_birth.to_time)/ 1.year.seconds).floor.to_s %></h6></br>
         <% if @appointment_test.result_date.present? %>
             <h6 class="card-subtitle mb-2 text-muted">Result Date: <%= @appointment_test.result_date.strftime("%d-%m-%Y") %></h6>
         <% else %>
