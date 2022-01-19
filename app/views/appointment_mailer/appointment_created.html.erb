@@ -1,0 +1,23 @@
+<div class="grey-container">
+    <div class="row align-items-center">
+           <%= image_tag attachments['HMC-logo.png'].url, alt: 'HMC Logo', class: 'center'%>
+    </div>
+    <div class="email-body">
+        
+        <h1> Appointment Confirmation</h1><br><br>
+        
+        <p> Dear <%=@appointment.first_name %>,</p><br>
+        
+        <p> Thank you for booking an appointment with Hughes Medical Center.</p><br>
+        <p> We are delighted to confirm your appointment on <%= @appointment.appointment_time.strftime("%d-%m-%Y at %H:%M") %>.
+        Your appointment will be at <%= @appointment.location.name %>.</p>
+        
+        <p> If you need any more information, you can contact us at:</p>
+        <p> Telephone: (264) 497-6349</p>
+        <p> Email: info@hmc.com</p>
+        <br>
+        <p>Regards</p>
+        <br>
+        <p>Hughes Medical Center Team</p>
+    </div>
+</div>

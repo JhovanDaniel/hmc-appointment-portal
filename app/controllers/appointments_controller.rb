@@ -12,11 +12,12 @@ class AppointmentsController < ApplicationController
         
       @appointment = Appointment.new(appointment_params)
       if @appointment.save
-          name = @appointment.first_name
-          appointment_time = @appointment.appointment_time.strftime("%d-%m-%Y at %H:%M").to_s
-          location = @appointment.location.name
-          flash[:notice] = "Thank you, " + name + "! Your appointment was created successfully for " + appointment_time + ", at " + location + "."
-          redirect_to root_path
+        AppointmentMailer.with(appointment: @appointment).appointment_created.deliver_later
+        name = @appointment.first_name
+        appointment_time = @appointment.appointment_time.strftime("%d-%m-%Y at %H:%M").to_s
+        location = @appointment.location.name
+        flash[:notice] = "Thank you, " + name + "! Your appointment was created successfully for " + appointment_time + ", at " + location + "."
+        redirect_to root_path
       else
          render 'new' 
       end
