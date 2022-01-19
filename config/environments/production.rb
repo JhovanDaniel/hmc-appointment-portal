@@ -48,6 +48,8 @@ config.action_mailer.smtp_settings = {
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
+  config.assets.precompile += ['blueprint/screen.css', 'pdf.css', 'jquery.ui.datepicker.js', 'pdf.js', ...etc...]
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
