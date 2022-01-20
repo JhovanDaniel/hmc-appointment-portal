@@ -20,8 +20,26 @@ class AppointmentMailer < ApplicationMailer
   
   def test_approved
     @appointment_test = params[:appointment_test]
-    @greeting = "Hi"
+
+
+     rendered_receipt = ApplicationController.render(
+      :template      => 'appointment_tests/show_certificate.html.erb',
+      :layout        => 'pdf.html', 
+      :page_size     => 'Letter',
+      :locals        => { appointment_test: @appointment_test }
+    )
+    
+    
+    attachments["Results_HMCAP#{@appointment_test.appointment_id}.pdf"] = WickedPdf.new.pdf_from_string(rendered_receipt)
     attachments['HMC-logo.png'] = File.read('app/assets/images/HMC-logo.png')
+    
+    #attachments['HMC-logo.png'] = File.read('app/assets/images/HMC-logo.png')
+    
+    #attachments["test_#{@appointment_test.id}.pdf"] = WickedPdf.new.pdf_from_string(
+    #  render_to_string(pdf: "file_name", template: "appointment_tests/show_certificate.html.erb", 
+    #  page_size: 'Letter', layout: 'pdf.html'), :hash_with_wickedpdf_options
+    #)
+    
 
     mail(
       from: 'HMC Appointment Booking <hmc.testmailer@gmail.com>',

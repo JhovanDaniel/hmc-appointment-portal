@@ -47,7 +47,7 @@ class AppointmentTestsController < ApplicationController
         respond_to do |format|
             format.html
             format.pdf do
-                render pdf: "file_name", template: "appointment_tests/show_certificate.html.erb", page_size: 'Letter', layout: 'pdf.html'
+                render pdf: "file_name", template: "appointment_tests/show_certificate.html.erb", page_size: 'Letter', layout: 'pdf.html', :locals => { appointment_test: @appointment_test }
             end
         end
     end
