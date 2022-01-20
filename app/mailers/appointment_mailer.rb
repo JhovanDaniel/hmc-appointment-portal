@@ -17,4 +17,17 @@ class AppointmentMailer < ApplicationMailer
       subject: 'HMC Appointment Confirmation HMCAP'+@appointment.id.to_s
       )
   end
+  
+  def test_approved
+    @appointment_test = params[:appointment_test]
+    @greeting = "Hi"
+    attachments['HMC-logo.png'] = File.read('app/assets/images/HMC-logo.png')
+
+    mail(
+      from: 'HMC Appointment Booking <hmc.testmailer@gmail.com>',
+      to: email_address_with_name(@appointment_test.appointment.email, @appointment_test.appointment.first_name),
+      bcc: 'hmc.testmailer@gmail.com', 
+      subject: 'Test Results HMCAP'+@appointment_test.appointment.id.to_s
+      )
+  end
 end

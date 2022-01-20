@@ -55,16 +55,24 @@ class AppointmentTestsController < ApplicationController
     def approve_result
         if @appointment_test.approval_status == true
             @appointment_test.approval_status = false
+            if @appointment_test.save
+                flash[:notice] = "Test was approved successfully"
+                redirect_to appointment_tests_path
+            else
+                flash[:notice] = "Test was not saved due to an error"
+                redirect_to appointment_tests_path
+            end
+            
         else
             @appointment_test.approval_status = true
-        end
-        
-        if @appointment_test.save
-            flash[:notice] = "Test was approved successfully"
-            redirect_to appointment_tests_path
-        else
-            flash[:notice] = "Test was not saved due to an error"
-            redirect_to appointment_tests_path
+            if @appointment_test.save
+                AppointmentMailer.with(appointment_test: @appointment_test).test_approved.deliver_later
+                flash[:notice] = "Test was approved successfully"
+                redirect_to appointment_tests_path
+            else
+                flash[:notice] = "Test was not saved due to an error"
+                redirect_to appointment_tests_path
+            end
         end
     end
     
