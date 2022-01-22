@@ -1,5 +1,9 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+.action-text{
+    font-weight: 500;
+}
+
 .app-overlay {
     background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),  url('https://images.unsplash.com/photo-1602542165989-999c53234fdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
     background-repeat: no-repeat;
@@ -49,6 +53,18 @@
     padding-top: 3rem;
 }
 
+.badge-negative{
+    color: white;
+    background-color: #E05B4C;
+    border: none;
+}
+
+.badge-positive{
+    color: white;
+    background-color: #00940C;
+    border: none;
+}
+
 .chart-overlay {
     background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),  url('https://images.unsplash.com/photo-1546017535-ed107a04ac7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2hhcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
     background-repeat: no-repeat;
@@ -93,6 +109,14 @@ body {
   flex-shrink: none;
   background-color: #00022E;
 } 
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #F5FAFF;
+}
+
+table th{
+    font-weight: normal;
+}
 
 .test-overlay {
     background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),  url('https://images.unsplash.com/photo-1596978759889-91e1a654faca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');

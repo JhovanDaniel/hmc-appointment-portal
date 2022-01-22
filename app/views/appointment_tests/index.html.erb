@@ -1,6 +1,6 @@
 <h1 class="mt-4"> All Appointment Tests </h1><br/>
-<div class="table-responsive">    
-  <table class="table table-striped mt-4 mb-4">
+<div class="table-responsive-sm">    
+  <table class="table table-hover mt-4 mb-4">
       <thead>
         <tr>
             <th>Appointment Number</th>
@@ -21,15 +21,15 @@
                 <td><%= app_test.result_date %></td>
                 
                 <% if app_test.result == 'SARS-CoV-2 NEGATIVE' %>
-                <td><button class="badge badge-success"><%= app_test.result %></button></br>
+                <td><button class="badge badge-positive"><%= app_test.result %></button></br>
                 <% else %>
-                <td><button class="badge badge-danger"><%= app_test.result %></button></br>
+                <td><button class="badge badge-negative"><%= app_test.result %></button></br>
                 <% end %>
                 
                 <td><%= link_to "Certificate", show_certificate_path(app_test, format: :pdf), class:"btn btn-outline-primary btn-sm" %></td>
                 
-                <td><%= link_to "View", appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
-                <td><%= link_to 'Edit', edit_appointment_test_path(app_test), class:"btn btn-primary btn-sm" %></td>
+                <td><%= link_to "View", appointment_test_path(app_test), class:"text-primary action-text" %></td>
+                <td><%= link_to 'Edit', edit_appointment_test_path(app_test), class:"text-primary action-text" %></td>
                 
                 <% if app_test.approval_status == true %>
                   <td><%= link_to 'Unapprove Results', approve_result_path(app_test),  class:"btn btn-danger btn-sm", data: { confirm: "Are you sure?" } %></td>

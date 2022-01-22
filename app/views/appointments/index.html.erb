@@ -71,15 +71,14 @@
     </br></br>
     
     <!-- Table start -->
-     <div class="table-responsive">
-       <table class="table table-striped mt-4 mb-4">
+     <div class="table-responsive-sm">
+       <table class="table table-hover mt-4 mb-4">
           <thead>
             <tr>
-              <th>Appointment Number</th>
+              <th>Appointment No.</th>
               <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Appointment Time</th>
+              <th>Surname</th>
+              <th>Time</th>
               <th>Location</th>
               <th colspan="3">Actions</th>
             </tr>
@@ -90,11 +89,10 @@
                   <td> HMCAP<%= app.id %> </td>
                   <td> <%= app.first_name %> </td>
                   <td> <%= app.last_name %></td>
-                  <td><%= app.email %></td>
                   <td><%= app.appointment_time.strftime("%d-%m-%Y at %H:%M") %></td>
                   <td><%= app.location.name %></td>
-                  <td><%= link_to "View", appointment_path(app), class:"btn btn-primary btn-sm" %></td>
-                  <td><%= link_to 'Edit', edit_appointment_path(app), class:"btn btn-primary btn-sm" %></td>
+                  <td><%= link_to "View", appointment_path(app), class:"text-primary action-text" %></td>
+                  <td><%= link_to 'Edit', edit_appointment_path(app), class:"text-primary action-text" %></td>
                   <!-- check if test exists, if it does make button view test if permission is right -->
                   
                   <% if app.appointment_test %>
